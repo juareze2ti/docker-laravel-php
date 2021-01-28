@@ -1,8 +1,11 @@
 # docker-laravel-php
 
 
-## Configurações adicionais
+## Configurações adicionais do php
 - criar volume referenciando arquivo: `<path-config>/config.ini:/usr/local/etc/php/conf.d/config.ini:ro`
+
+## Sintetizador de voz
+- criar volume referenciando licenca: `<path-licenca>/licenca.txt:/usr/vt/helena/P16/data-common/verify/verification.txt:ro`
 
 ## Exemplo arquivo `<path-config>/config.ini`
 
