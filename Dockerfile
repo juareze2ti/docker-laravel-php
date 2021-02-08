@@ -46,19 +46,8 @@ ENV LC_ALL pt_BR.UTF-8
 # Instalar unzip
 RUN apt-get install --allow-unauthenticated -y unzip
 
-# Instala sintetizador de voz
-RUN apt-get install wget -y --allow-unauthenticated
-RUN wget "https://www.dropbox.com/s/69n2clchrvjsht6/helena_p16_setup_engine.tar?dl=0" -O /tmp/helena_p16_setup_engine.tar
-RUN tar xf /tmp/helena_p16_setup_engine.tar -C /tmp \
-    && cd /tmp && /tmp/helena.bin \
-    && rm /tmp/helena.bin /tmp/helena_p16_setup_engine.tar
-RUN wget "https://www.dropbox.com/s/czl4q03qhvejdt3/sintetizador-de-voz.tar?dl=0" -O /tmp/sintetizador-de-voz.tar
-RUN tar xf /tmp/sintetizador-de-voz.tar -C /opt \
-    && rm /tmp/sintetizador-de-voz.tar \
-    && cd /opt/sintetizador-de-voz && make \
-    && chmod +x /opt/sintetizador-de-voz/main /opt/sintetizador-de-voz/run.sh
-
-RUN apt-get remove -y wget
+# Instala pg_dump
+RUN apt-get install --allow-unauthenticated -y postgresql-client
 
 
 WORKDIR /var/www
